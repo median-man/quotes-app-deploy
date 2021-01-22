@@ -98,7 +98,15 @@ app.delete("/api/quotes/:id", (req, res) => {
 });
 
 // Update a quote.
-app.put("/api/quotes/:id", (req, res) => {});
+app.put("/api/quotes/:id", (req, res) => {
+  connection.query(
+    "UPDATE quotes SET ? WHERE id = ?",
+    [req.body, req.params.id],
+    (err, result) => {
+      res.end();
+    }
+  );
+});
 
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, () => {

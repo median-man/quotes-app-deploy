@@ -1,10 +1,10 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(() => {
   $(".delquote").on("click", function (event) {
-    const haa = $(this).data("id");
+    const id = $(this).data("id");
 
     // Send the DELETE request.
-    $.ajax(`/api/quotes/${haa}`, {
+    $.ajax(`/api/quotes/${id}`, {
       type: "DELETE",
     }).then(() => {
       console.log("deleted id ", id);
